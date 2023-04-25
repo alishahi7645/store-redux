@@ -1,13 +1,14 @@
-
+import {BrowserRouter , Routes , Route} from 'react-router-dom'
+import Product from './components/Product';
+import Cart from './components/Cart';
 function App() {
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div className="container">
-          تست
-        </div>
-      </nav>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Product/>}/>
+        <Route path='/cart' element={<Cart/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -1,20 +1,33 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
-import {IoBasketOutline , IoHomeSharp} from 'react-icons/io5'
+import React from "react";
+import { Link } from "react-router-dom";
+import { IoBasketOutline, IoHomeSharp } from "react-icons/io5";
+import Navbar from "./Navbar";
+import { Data } from "../data";
+import formatCurrency from "../util";
 function Product() {
   return (
     <>
-        <nav>
-            <Link to='/cart'>
-                <IoBasketOutline/>
-            </Link>
-            <Link to='/'>
-                <IoHomeSharp/>
-            </Link>
-        </nav>
-        <div className="products"></div>
+      <Navbar />
+      <div className="products">
+        {Data.map((item) => {
+          return (
+            <div className="product-item" key={item.id}>
+              <img src={item.image} alt="" />
+              <div className="product-item-text">
+                <div className="product-item-info">
+                  <h4>{item.title}</h4>
+                  <h5>{formatCurrency(item.price)}</h5>
+                </div>
+                <div className="add-to-cart">
+                  <button>افزودن به سبد خرید</button>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </>
-  )
+  );
 }
 
-export default Product
+export default Product;
