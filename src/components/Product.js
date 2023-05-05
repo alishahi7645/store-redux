@@ -4,7 +4,10 @@ import { IoBasketOutline, IoHomeSharp } from "react-icons/io5";
 import Navbar from "./Navbar";
 import { Data } from "../data";
 import formatCurrency from "../util";
+import {useSelector , useDispatch} from 'react-redux'
 function Product() {
+  const cart = useSelector((store) => store);
+  const dispatch = useDispatch();
   return (
     <>
       <Navbar />
@@ -19,7 +22,7 @@ function Product() {
                   <h5>{formatCurrency(item.price)}</h5>
                 </div>
                 <div className="add-to-cart">
-                  <button>افزودن به سبد خرید</button>
+                  <button onClick={()=> dispatch({type:"ADD", payload:item})}>افزودن به سبد خرید</button>
                 </div>
               </div>
             </div>
