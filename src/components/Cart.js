@@ -27,9 +27,9 @@ function Cart() {
                   <span>تعداد : {item.quantity}</span>
                   <button onClick={() => {
                     if(item.quantity > 1){
-                      dispatch({ type: "DECREASE", payload: item })
+                      dispatch({  type: "DECREASE", payload: item })
                     }else{
-                      dispatch({ type: "REMOVE", payload: item })
+                      dispatch({  type: "REMOVE", payload: item })
                     }
                   }}>-</button>
                 </div>
