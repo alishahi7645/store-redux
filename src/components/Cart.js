@@ -12,7 +12,6 @@ function Cart() {
       <Navbar />
       <div className="cart">
         {cart.map((item) => {
-          item.quantity = 1;
           return (
             <div className="cart-item" key={item.id}>
               <img src={item.image} alt="" />
@@ -24,7 +23,7 @@ function Cart() {
                   <button onClick={()=> dispatch({type: 'REMOVE', payload: item})}>حذف از سبد</button>
                 </div>
                 <div className="add-to-cart">
-                  <button onClick={() => dispatch({ type: "ADD", payload: item })}>+</button>
+                  <button onClick={() => dispatch({ type: "INCREASE", payload: item })}>+</button>
                   <span>تعداد : {item.quantity}</span>
                   <button onClick={() => dispatch({ type: "ADD", payload: item })}>-</button>
                 </div>
