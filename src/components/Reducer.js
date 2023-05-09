@@ -19,6 +19,15 @@ const Reducer = (cart = [], action)=>{
         })
         return tempcart;
     }
+    if(action.type === 'DECREASE'){
+        let tempcart = cart.map((item)=>{
+            if(item.id === action.payload.id){
+                return {...item, quantity: item.quantity -1}
+            }
+            return item;
+        })
+        return tempcart;
+    }
     return cart;
 }
 export default Reducer;

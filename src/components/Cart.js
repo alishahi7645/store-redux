@@ -25,7 +25,13 @@ function Cart() {
                 <div className="add-to-cart">
                   <button onClick={() => dispatch({ type: "INCREASE", payload: item })}>+</button>
                   <span>تعداد : {item.quantity}</span>
-                  <button onClick={() => dispatch({ type: "ADD", payload: item })}>-</button>
+                  <button onClick={() => {
+                    if(item.quantity > 1){
+                      dispatch({ type: "DECREASE", payload: item })
+                    }else{
+                      dispatch({ type: "REMOVE", payload: item })
+                    }
+                  }}>-</button>
                 </div>
               </div>
             </div>
